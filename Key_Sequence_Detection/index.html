@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <script type="text/javascript" src="./cornify.js"></script>
+    <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+
+<body>
+    <script>
+        //
+        const pressed = [];
+        const secretCode = "abhi";
+
+        window.addEventListener("keyup", (e) => {
+            pressed.push(e.key);
+            console.log(pressed)
+
+            // Keep only the last N keys
+            if (pressed.length > secretCode.length) {
+                pressed.shift(); // removes the oldest key
+            }
+
+            console.log(pressed.join("")); // shows the current sequence
+
+            if (pressed.join("").includes(secretCode)) {
+                console.log("well done");
+                cornify_add()
+            }
+        });
+    </script>
+</body>
+
+</html>
